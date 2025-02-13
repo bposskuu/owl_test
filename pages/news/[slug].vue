@@ -1,19 +1,24 @@
 <template>
   <div class="news-popup">
     <div class="news-popup-content">
-      <div class="news-popup-content-breadcrumb"></div>
-      <div class="news-popup-content-tags">
-        <Tag
-            v-for="(tag, i) in news.data.result.tags"
-            :key="i"
-            :tag="tag"
-        ></Tag>
-      </div>
-      <div class="news-popup-content-title">
-        <h1>{{ news.data.result.title }}</h1>
-      </div>
-      <div class="news-popup-content-date">
+      <div class="news-popup-header">
+        <div class="news-popup-header-breadcrumb">
+          <Breadcrumbs :page-name=news.data.result.title />
+        </div>
+        <div class="news-popup-header-tags">
+          <Tag
+              v-for="(tag, i) in news.data.result.tags"
+              :key="i"
+              :tag="tag"
+          ></Tag>
+        </div>
+        <div class="news-popup-header-title">
+          <h1>{{ news.data.result.title }}</h1>
+        </div>
+        <div class="news-popup-header-date">
+          <span>{{ news.data.result.date.replaceAll('-', '.') }}</span>
 
+        </div>
       </div>
     </div>
   </div>
@@ -21,6 +26,7 @@
 
 <script setup lang="ts">
 import axios from "axios"
+import Breadcrumbs from "~/components/Breadcrumbs.vue";
 
 const route = useRoute()
 
@@ -53,10 +59,16 @@ const news = await getNews()
   border-radius: 16px 16px 0 0;
   padding: 32px 0 64px 0;
 
-  &-content {
+  &-content{
     width: 70%;
     display: flex;
     flex-direction: column;
+  }
+
+  &-header {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
 
     &-tags {
       display: flex;
@@ -65,11 +77,23 @@ const news = await getNews()
     }
 
     &-title {
+      margin-bottom: 16px;
       h1 {
         font-family: Unbounded, sans-serif;
         font-size: 48px;
         line-height: 56px;
         color: #423F3F;
+      }
+    }
+
+    &-date {
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 16px;
+      color: #CFCFCF;
+
+      span {
+        border-bottom: 1px #CFCFCF solid;
       }
     }
   }

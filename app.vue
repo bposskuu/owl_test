@@ -5,13 +5,14 @@
 </template>
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Unbounded:wght@200..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Unbounded:wght@200..900&family=Onest:wght@100..900&display=swap');
 
 * {
   margin: 0;
   padding: 0;
   outline: none;
   text-decoration: none;
+  font-family: 'Onest', cursive;
 }
 
 body {
