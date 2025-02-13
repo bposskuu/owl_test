@@ -3,10 +3,17 @@
     <div class="news-popup-content">
       <div class="news-popup-content-breadcrumb"></div>
       <div class="news-popup-content-tags">
-
+        <Tag
+            v-for="(tag, i) in news.data.result.tags"
+            :key="i"
+            :tag="tag"
+        ></Tag>
       </div>
       <div class="news-popup-content-title">
         <h1>{{ news.data.result.title }}</h1>
+      </div>
+      <div class="news-popup-content-date">
+
       </div>
     </div>
   </div>
@@ -50,6 +57,12 @@ const news = await getNews()
     width: 70%;
     display: flex;
     flex-direction: column;
+
+    &-tags {
+      display: flex;
+      flex-direction: row;
+      gap: 8px;
+    }
 
     &-title {
       h1 {
