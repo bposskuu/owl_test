@@ -40,23 +40,27 @@ paths.shift()
 
     a {
       color: #423F3F;
+      font-size: 16rem;
+      line-height: 16rem;
     }
   }
 
   .with-next:after {
     display: inline-flex;
     content: "";
-    width: 4px;
-    height: 4px;
+    width: 4rem;
+    height: 4rem;
     border-radius: 100%;
     background-color: #423F3F;
-    margin: 0 10px;
+    margin: 0 10rem;
     align-items: center;
   }
 
   .last-item {
     color: #423F3F;
     opacity: 40%;
+    font-size: 16rem;
+    line-height: 16rem;
   }
 }
 

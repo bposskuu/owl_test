@@ -10,7 +10,7 @@
               v-for="(tag, i) in news.data.result.tags"
               :key="i"
               :tag="tag"
-          ></Tag>
+          />
         </div>
         <div class="news-popup-header-title">
           <h1>{{ news.data.result.title }}</h1>
@@ -20,6 +20,7 @@
 
         </div>
       </div>
+      <NextNews :next-news="news.data.result.next" />
     </div>
   </div>
 </template>
@@ -56,44 +57,50 @@ const news = await getNews()
   justify-content: center;
   background: white;
   margin: 0 auto;
-  border-radius: 16px 16px 0 0;
-  padding: 32px 0 64px 0;
+  border-radius: 16rem 16rem 0 0;
+  padding: 32rem 0 64rem 0;
 
   &-content{
     width: 70%;
     display: flex;
     flex-direction: column;
+    gap: 32rem;
+
+    @media (max-width: 768px) {
+      & {
+        width: 95%;
+      }
+    }
   }
 
   &-header {
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    gap: 16rem;
 
     &-tags {
       display: flex;
       flex-direction: row;
-      gap: 8px;
+      gap: 8rem;
     }
 
     &-title {
-      margin-bottom: 16px;
       h1 {
         font-family: Unbounded, sans-serif;
-        font-size: 48px;
-        line-height: 56px;
+        font-size: 48rem;
+        line-height: 56rem;
         color: #423F3F;
       }
     }
 
     &-date {
       font-weight: 500;
-      font-size: 16px;
-      line-height: 16px;
       color: #CFCFCF;
 
       span {
-        border-bottom: 1px #CFCFCF solid;
+        border-bottom: 1rem #CFCFCF solid;
+        font-size: 16rem;
+        line-height: 16rem;
       }
     }
   }

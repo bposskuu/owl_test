@@ -13,6 +13,13 @@
   outline: none;
   text-decoration: none;
   font-family: 'Onest', cursive;
+  font-size: .0625vw;
+
+  @media (max-width: 768px) {
+    & {
+      font-size: .1389vw;
+    }
+  }
 }
 
 body {
